@@ -1,3 +1,20 @@
 *{
-    background-color: black;   
+    background-color: black;
+}
+
+div{
+    position: absolute;
+    width: 1000px;
+    height: 200px;
+    z-index: 15;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -540px;
+}
+
+p{
+    color: aquamarine;
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 35px;
 }
