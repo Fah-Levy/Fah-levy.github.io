@@ -33,11 +33,14 @@ header .menu {
 
 .qutes{
     position: absolute;
-    width: 1000px;
-    height: 200px;
+    width: 90%;             /* fleksibel, max 90% layar */
+    max-width: 1000px;      /* biar di desktop tetap gede */
+    height: auto;
     top: 50%;
     left: 50%;
-    margin: -150px 0 0 -510px;
+    transform: translate(-50%, -50%); /* ganti margin manual jadi lebih rapi */
+    text-align: center;
+    padding: 0 10px;        /* kasih jarak biar aman di hp */
 }
 
 .batman {
@@ -96,4 +99,17 @@ header .menu {
     opacity: 0;
     transform: translateY(-50px) scale(0.9);
     transition: all 0.5s ease-in;
+}
+
+/* extra: kalau layar hp kecil */
+@media (max-width: 600px) {
+  .batman {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  header .menu {
+    left: 5%; /* biar gak kejauhan */
+    font-size: 1.4rem;
+  }
 }
