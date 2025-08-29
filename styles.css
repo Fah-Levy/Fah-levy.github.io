@@ -1,20 +1,99 @@
-*{
-    background-color: black;
+:root {
+    --bg-color: #161616; /* background utama */
+    --text-color: aqua;  /* warna teks default */
 }
 
-div{
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+header{
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80px;
+}
+
+header .menu {
+    position: absolute;
+    left: 10%;
+    bottom: 1rem;
+    font-size: 1.6rem;
+    color: var(--bg-color); /* ikut warna background */
+    cursor: pointer;
+}
+
+.qutes{
     position: absolute;
     width: 1000px;
     height: 200px;
-    z-index: 15;
     top: 50%;
     left: 50%;
     margin: -150px 0 0 -510px;
 }
 
-p{
-    color: aquamarine;
+.batman {
     text-align: center;
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 35px;
+    font-size: 30px;
+    opacity: 0;                /* awalnya sembunyi */
+    transform: translateY(30px); /* agak turun dulu */
+    transition: opacity 1.8s ease, transform 1.8s ease;
+}
+
+.batman.show {
+    opacity: 1;
+    transform: translateY(0);  /* naik ke posisi normal */
+}
+
+
+/*the welcome intro*/
+
+.intro {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #161616;
+    transition: 1s;
+}
+
+.logo-header {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: aqua;
+    font-size: 80px;     /* ukuran huruf */
+    letter-spacing: 2px; /* atur jarak antar huruf */
+}
+
+
+.logo {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px) scale(0.8);
+}
+
+.logo.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+    /* easing elastis biar gak kaku */
+}
+
+.logo.fade {
+    opacity: 0;
+    transform: translateY(-50px) scale(0.9);
+    transition: all 0.5s ease-in;
 }
