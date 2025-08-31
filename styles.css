@@ -10,8 +10,11 @@
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     font-style: normal;
-    background: var(--bg-color);
     color: var(--text-color);
+}
+
+body{
+    background: var(--bg-color);
 }
 
 header{
@@ -27,38 +30,13 @@ header .menu {
     left: 10%;
     bottom: 1rem;
     font-size: 1.6rem;
-    color: var(--bg-color); /* ikut warna background */
+    color: #fff;
+    /*color: var(--bg-color); /* ikut warna background */
     cursor: pointer;
 }
 
-.qutes{
-    position: absolute;
-    width: 90%;             /* fleksibel, max 90% layar */
-    max-width: 1000px;      /* biar di desktop tetap gede */
-    height: auto;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* ganti margin manual jadi lebih rapi */
-    text-align: center;
-    padding: 0 10px;        /* kasih jarak biar aman di hp */
-}
-
-.batman {
-    text-align: center;
-    font-size: 30px;
-    opacity: 0;                /* awalnya sembunyi */
-    transform: translateY(30px); /* agak turun dulu */
-    transition: opacity 1.8s ease, transform 1.8s ease;
-}
-
-.batman.show {
-    opacity: 1;
-    transform: translateY(0);  /* naik ke posisi normal */
-}
-
-
+/*------------------------------------------------------------------------------*/
 /*the welcome intro*/
-
 .intro {
     position: fixed;
     z-index: 9999;
@@ -80,7 +58,6 @@ header .menu {
     letter-spacing: 2px; /* atur jarak antar huruf */
 }
 
-
 .logo {
     position: relative;
     display: inline-block;
@@ -101,6 +78,177 @@ header .menu {
     transition: all 0.5s ease-in;
 }
 
+/*------------------------------------------------------------------------------*/
+/* Overlay Menu */
+.overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9997;
+    background: rgba(22, 22, 22, 0.5); /* transparan */
+    backdrop-filter: blur(12px);       /* efek glass */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(0);               /* awalnya kecil */
+    transform-origin: top left;        /* dari pojok kiri atas */
+    transition: transform 0.5s ease-in-out;
+}
+
+.overlay.active {
+    transform: scale(1); /* membesar jadi full */
+}
+
+.overlay-content {
+    display: flex;
+    flex-direction: column;  /* biar vertikal */
+    gap: 20px;              /* jarak antar menu */
+    align-items: center;
+    text-align: center;
+}
+
+/* ---- Link Overlay dengan efek gelombang ---- */
+.overlay-content a {
+    position: relative;
+    display: inline-block;
+    font-size: 28px;
+    text-decoration: none;
+    color: aqua;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.overlay-content a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background: aqua;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease;
+    border-radius: 2px;
+}
+
+/* Hover efek */
+.overlay-content a:hover {
+    color: white;
+}
+
+.overlay-content a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+    animation: wave 0.6s ease forwards;
+}
+
+/* animasi gelombang kecil */
+@keyframes wave {
+  0%   { transform: scaleX(0) translateY(0); }
+  40%  { transform: scaleX(1.1) translateY(-3px); }
+  70%  { transform: scaleX(0.9) translateY(2px); }
+  100% { transform: scaleX(1) translateY(0); }
+}
+
+header .menu {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9998;
+}
+
+/* Garis */
+.menu span {
+  position: absolute;
+  width: 3px;
+  height: 16px;
+  background: var(--bg-color);
+  transition: transform 0.4s ease, left 0.4s ease;
+}
+
+/* ====== DEFAULT (bentuk >) ====== */
+/* garis miring atas */
+.menu span:first-child {
+  transform: rotate(125deg);
+  left: 18px;
+  top: 12px;   /* kasih posisi atas */
+}
+
+/* garis miring bawah */
+.menu span:last-child {
+  transform: rotate(-125deg);
+  left: 18px;
+  top: 20px;   /* kasih posisi bawah */
+}
+
+/* ====== AKTIF (jadi X) ====== */
+.menu.active span:first-child {
+  transform: rotate(45deg);
+  left: 18px;
+  top: 14px;   /* tetap di atas */
+  background: var(--text-color);
+}
+
+.menu.active span:last-child {
+  transform: rotate(-45deg);
+  left: 18px;
+  top: 14px;   /* tetap di bawah */
+  background: var(--text-color);
+}
+
+
+/*------------------------------------------------------------------------------*/
+/* Sites*/
+.qutes{
+    position: absolute;
+    width: 90%;             /* fleksibel, max 90% layar */
+    max-width: 1000px;      /* biar di desktop tetap gede */
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* ganti margin manual jadi lebih rapi */
+    text-align: center;
+    padding: 0 10px;        /* kasih jarak biar aman di hp */
+}
+
+.batman {
+  position: absolute;
+  width: 80%;
+  max-width: 1000px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  opacity: 0;
+  transition: opacity 1s ease, top 1s ease;
+  font-size: 30px;
+  line-height: 1.5;
+}
+
+.batman.active {
+  opacity: 1;
+}
+
+.batman .main-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;   /* hanya 3 baris */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.batman .author {
+  display: block;          /* selalu di baris baru */
+  margin-top: 10px;        /* jarak dari 3 baris utama */
+  font-weight: 600;
+}
+
+/*------------------------------------------------------------------------------*/
 /* extra: kalau layar hp kecil */
 @media (max-width: 600px) {
   .batman {
@@ -112,4 +260,9 @@ header .menu {
     left: 5%; /* biar gak kejauhan */
     font-size: 1.4rem;
   }
+
+  .overlay-content a {
+    font-size: 22px;
+  }
 }
+    
