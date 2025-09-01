@@ -168,7 +168,7 @@ header .menu {
   position: absolute;
   width: 3px;
   height: 16px;
-  background: var(--bg-color);
+  background: #161616
   transition: transform 0.4s ease, left 0.4s ease;
 }
 
@@ -214,6 +214,7 @@ header .menu {
     left: 50%;
     transform: translate(-50%, -50%); /* ganti margin manual jadi lebih rapi */
     padding: 0 10px;        /* kasih jarak biar aman di hp */
+    text-align: center;
 }
 
 .batman {
@@ -226,6 +227,9 @@ header .menu {
   text-align: center;
   opacity: 0;
   transition: opacity 1s ease, top 1s ease;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.5;
 }
 
 .batman.active {
@@ -238,8 +242,8 @@ header .menu {
 }
 
 .batman .author {
-  display: block;          /* selalu di baris baru */
-  margin-top: 10px;        /* jarak dari 3 baris utama */
+  display: block;        
+  margin-top: 10px;        
   font-weight: 600;
 }
 
