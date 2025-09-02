@@ -1,5 +1,6 @@
+//------------------------------INDEX--------------------------
+//#region INDEX
 // animasi intro
-
 let intro = document.querySelector('.intro');
 let logo = document.querySelector('.logo-header');
 let logSpan = document.querySelectorAll('.logo');
@@ -73,3 +74,26 @@ setTimeout(() => {
     batmans[currentPage].classList.add("active");
   }, 8000); // ganti tiap 10 detik
 }, 0);
+//#endregion INDEX
+
+//------------------------------About--------------------------
+//#region About
+    // Smooth scroll function
+    function scrollToAbout() {
+      const aboutSection = document.getElementById('about');
+      aboutSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    // Scroll animation
+    const observerOptions = { threshold: 0.2, rootMargin: '0px 0px -100px 0px' };
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'scale(1) translateY(0)';
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.about-container').forEach((el) => observer.observe(el));
+//#endregion About

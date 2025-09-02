@@ -1,3 +1,5 @@
+/*--------------------------------INDEX-----------------------------------------------*/
+/* #region INDEX */
 :root {
     --bg-color: #161616; /* background utama */
     --text-color: aqua;  /* warna teks default */
@@ -30,7 +32,7 @@ header .menu {
     left: 10%;
     bottom: 1rem;
     font-size: 1.6rem;
-    color: #fff;
+    color: #161616;
     /*color: var(--bg-color); /* ikut warna background */
     cursor: pointer;
 }
@@ -168,7 +170,7 @@ header .menu {
   position: absolute;
   width: 3px;
   height: 16px;
-  background: #161616
+  background: #0ff
   transition: transform 0.4s ease, left 0.4s ease;
 }
 
@@ -201,7 +203,6 @@ header .menu {
   top: 14px;   /* tetap di bawah */
   background: var(--text-color);
 }
-
 
 /*------------------------------------------------------------------------------*/
 /* Sites*/
@@ -264,4 +265,8 @@ header .menu {
     font-size: 22px;
   }
 }
-    
+/* #endregion INDEX */
+
+
+
+
