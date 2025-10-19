@@ -15,7 +15,11 @@
     font-style: normal;
     color: var(--text-color);
     font-family: var(--font-family);}
-body { background: var(--bg-color); }
+body { background: var(--bg-color); 
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;}
 /* #endregion Main*/
 
 /* #region ---------INDEX----------------*/
