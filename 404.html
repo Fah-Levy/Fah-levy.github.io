@@ -3,63 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Asset/styles404.css" />
+    <link rel="stylesheet" href="Asset/style-man.css" />
     <link rel="icon" type="image/png" href="Asset/avatar.png">
     <title>404 Not Found</title>
 </head>
 <body>
+    <div class="box-404">
     <div class="background-dots" id="dots"></div>
-    
-    <div class="construction-container">
-        <div class="avatar-container">
-            <div class="avatar">
-                <div class="avatar-icon">🚧</div>
-            </div>
-        </div>
-        
+        <h2 class="tex-at">404</h2>
         <h1 class="glitch-title">
-            <span class="glitch" data-text="WEB">WEB</span><br>
-            <span class="glitch" data-text="SITE">SITE</span>
+        <span class="glitch">UNDER</span><br>
+        <span class="glitch">CONSTRUCTION</span>
         </h1>
-        <h2 class="subtitle">UNDER CONSTRUCTION</h2>
         <p class="simple-text">Sorry, I'm still working on it...</p>
-    
-    <div class="social-links">
-        <a href="mailto:iqbalfahlevy666@email.com" class="social-link contact-btn">Contact Me</a>
+    <button class="btn back-404">Back</button>
     </div>
-
-    <script>
-        // Create floating background dots
-        function createDots() {
-            const dotsContainer = document.getElementById('dots');
-            const dotsCount = 50;
-            
-            for (let i = 0; i < dotsCount; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                
-                // Random position
-                dot.style.left = Math.random() * 100 + 'vw';
-                dot.style.top = Math.random() * 100 + 'vh';
-                
-                // Random size
-                const size = Math.random() * 3 + 1;
-                dot.style.width = size + 'px';
-                dot.style.height = size + 'px';
-                
-                // Random animation delay
-                dot.style.animationDelay = Math.random() * 6 + 's';
-                dot.style.animationDuration = (Math.random() * 4 + 4) + 's';
-                
-                dotsContainer.appendChild(dot);
-            }
-        }
-        
-        // Initialize on load
-        document.addEventListener('DOMContentLoaded', function() {
-            createDots();
-        });
-    </script>
+    <script src="Asset/app.js"></script>
 </body>
 </html>
-
